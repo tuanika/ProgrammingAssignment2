@@ -9,15 +9,15 @@ makeCacheMatrix <- function(x = matrix()) { # input x is a matrix
         
         set <- function(y) { # input y is a matrix
                 x <<- y 
-                i <<- NULL # inverse is reset to NULL if x changes
+                i <<- NULL # inverse is reset to NULL if matrix x changes
         }
-        get <- function() {x} # gets object x
+        get <- function() {x} # gets object x, called by 'cacheSolve' at 1st access
         
         setinverse <- function(solve) {i <<- solve}  
-        # sets inverse of a matrix, called by 'cacheSolve' at first access
+        # sets inverse of a matrix, called by 'cacheSolve' at 1st access
         
         getinverse <- function() {i} 
-        # gets inverse of a matrix at the second access of 'cacheSolve'
+        # gets inverse of a matrix at the 2nd access of 'cacheSolve'
         
         list(set = set, get = get, 
              setinverse = setinverse,
